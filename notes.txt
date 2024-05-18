@@ -1,0 +1,78 @@
+DOL - OSHA enforcement data: https://enforcedata.dol.gov/views/data_summary.php
+OSHA injury tracking: https://www.osha.gov/Establishment-Specific-Injury-and-Illness-Data
+
+1. Correlation between Establishment Size and Injury Rates
+Hypothesis: Larger establishments (with more employees) have a lower rate of injuries per employee compared to smaller establishments due to better safety protocols and resources.
+Data Required: size, total_hours_worked, total_injuries, annual_average_employees from the 300A summary data.
+Analysis: Calculate the injury rate per employee for different establishment sizes and perform a correlation analysis.
+
+2. Impact of Industry Type on Injury Severity
+Hypothesis: Certain high-hazard industries have a higher severity of injuries (e.g., more days away from work) compared to others.
+Data Required: naics_code, total_dafw_cases, total_dafw_days, total_injuries, total_hours_worked from the 300A summary data and case detail data.
+Analysis: Categorize data by NAICS codes and compare the average severity of injuries across different industries.
+
+3. Temporal Trends in Workplace Injuries
+Hypothesis: The frequency of workplace injuries has decreased over recent years due to improved safety regulations and practices.
+Data Required: year_filing_for, total_injuries from the 300A summary data.
+Analysis: Perform a time series analysis on the total number of injuries reported each year.
+
+4. Effectiveness of OSHA Inspections on Reducing Violations
+Hypothesis: Establishments with previous OSHA inspections have fewer violations in subsequent years compared to those without prior inspections.
+Data Required: activity_nr, violation_type, inspection_type from the enforcement data, and establishment_ID, year_filing_for from the 300A summary data.
+Analysis: Track establishments over time and compare violation counts before and after inspections.
+
+5. Geographical Distribution of Workplace Injuries
+Hypothesis: Certain regions have higher rates of workplace injuries due to local industry prevalence and varying adherence to safety regulations.
+Data Required: state, total_injuries, total_hours_worked from the 300A summary data.
+Analysis: Create heat maps to visualize the distribution of injury rates across different states.
+
+6. Relationship between Violation Types and Injury Outcomes
+Hypothesis: Establishments with certain types of OSHA violations (e.g., safety planning guide violations) have more severe injury outcomes.
+Data Required: violation_type, severity, activity_nr from the enforcement data, and incident_outcome, type_of_incident from the case detail data.
+Analysis: Analyze the types of violations and correlate them with the severity and type of injuries reported.
+
+7. Seasonal Variation in Workplace Injuries
+Hypothesis: Workplace injuries exhibit seasonal patterns, with higher frequencies in certain months due to varying work conditions.
+Data Required: date_of_incident, total_injuries, total_hours_worked from the case detail data and summary data.
+Analysis: Analyze the monthly distribution of injuries and correlate it with seasonal work conditions.
+
+8. Impact of Employee Tenure on Injury Rates
+Hypothesis: New employees (with shorter tenure) have higher injury rates compared to more experienced employees.
+Data Required: job_title, date_of_incident, annual_average_employees from the case detail data.
+Analysis: Analyze injury rates based on employee tenure and job titles, comparing new hires to long-term employees.
+
+9. Relationship Between Injury Type and Industry Sector
+Hypothesis: Certain types of injuries (e.g., respiratory conditions, skin disorders) are more prevalent in specific industry sectors.
+Data Required: naics_code, type_of_incident from the case detail data and summary data.
+Analysis: Compare the frequency of different injury types across various NAICS codes to identify industry-specific risks.
+
+# Requires External Data Sources 
+10. Impact of Economic Factors on Workplace Safety
+Hypothesis: Economic downturns (e.g., recessions) lead to higher workplace injury rates due to cost-cutting measures affecting safety protocols.
+External Data Required: Economic indicators like GDP growth rate, unemployment rate from the Bureau of Labor Statistics (BLS).
+Analysis: Correlate economic indicators with annual injury rates from your dataset to analyze the impact of economic conditions on workplace safety.
+
+11. Comparison of Injury Rates by State Labor Regulations
+Hypothesis: States with stricter labor regulations have lower workplace injury rates.
+External Data Required: State labor regulations and enforcement data from the Department of Labor (DOL).
+Analysis: Compare injury rates from your dataset across states with varying levels of labor regulation strictness.
+
+12. Influence of Worker Demographics on Injury Patterns
+Hypothesis: Certain demographic groups (e.g., age, gender, ethnicity) have different injury patterns and severities.
+External Data Required: Worker demographic data from the BLS or Census Bureau.
+Analysis: Correlate injury data with demographic information to identify patterns and disparities among different worker groups.
+
+13. Effectiveness of Safety Training Programs
+Hypothesis: Establishments with regular safety training programs report fewer and less severe injuries.
+External Data Required: Data on safety training programs and participation rates from OSHA or industry reports.
+Analysis: Compare injury rates and severities between establishments with and without regular safety training programs.
+
+14. Analysis of Injury Causes in High-Risk Industries
+Hypothesis: High-risk industries (e.g., construction, manufacturing) have distinct primary causes of injuries that can be targeted for prevention.
+External Data Required: Detailed cause of injury data from industry reports or OSHA accident databases.
+Analysis: Identify and analyze the primary causes of injuries within high-risk industries to develop targeted prevention strategies.
+
+15. Correlation Between Inspection Frequency and Injury Reduction
+Hypothesis: Higher frequency of OSHA inspections leads to a significant reduction in workplace injuries over time.
+External Data Required: Historical OSHA inspection frequency data from the OSHA website or enforcement databases.
+Analysis: Correlate the frequency of inspections with injury rates over time to evaluate the effectiveness of regular inspections.
