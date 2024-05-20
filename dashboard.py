@@ -4,6 +4,7 @@ import plotly.express as px
 import numpy as np
 import plotly.graph_objects as go
 import json
+import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 
@@ -31,13 +32,13 @@ def load_data(year):
 
 @st.cache_data
 def load_business_data():
-    with open('sample_by_estab_id.json') as f:
+    with open('data/sample_by_estab_id.json') as f:
         data = json.load(f)
     return data
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.selectbox("Choose a page", ["Correlation Analysis", "NAICS Treemap", "Business Injury Rates","State Injury Rate Trends","3D Scatterplots"])
+page = st.sidebar.selectbox("Choose a page", ["Correlation Analysis", "NAICS Treemap", "Business Injury Rates","State Injury Rate Trends","3D Scatterplots","DAFW by VA ZIP"])
 
 # Correlation Analysis page
 if page == "Correlation Analysis":
@@ -428,3 +429,11 @@ elif page == "3D Scatterplots":
     
     # Display the 3D scatter plot
     st.plotly_chart(fig, use_container_width=True)
+    
+elif page == 'DAFW by VA ZIP':
+    st.title("Days away from work grouped by VA Zip Code")
+    
+    with open('html\ita-data-map-va.html','r') as f: 
+        html_data = f.read()
+    
+    st.components.v1.html(html_data, scrolling=True, height=600)
