@@ -82,7 +82,7 @@ elif page == "Correlation Analysis":
     
     placeholder = 'Select a year'
     with year_select:
-        year = st.selectbox("Select year for data", [placeholder] + list(reversed(range(2016,2024))),index = 0)
+        year = st.selectbox("Select year for data",list(reversed(range(2016,2024))),index = 7)
     
     if year != placeholder:
         data_cleaned = load_data(year)
