@@ -1,8 +1,17 @@
-
 /shapefile
-/data dictionaries
-/data
 aggregated_injury_data.json
 filtered_aggregated_data.json
 reformatted_aggregate_by_estab_id.json
-sample_by_estab_id.json
+/data/violations
+/data/inspections
+data/injury data/severe_injury.xlsx
+data/injury data/ita-data-all.csv
+data/injury data/ITA Data CY 2023.csv
+data/injury data/ITA Data CY 2022.csv
+data/injury data/ITA Data CY 2021.csv
+data/injury data/ITA Data CY 2020.csv
+data/injury data/ITA Data CY 2019.csv
+data/injury data/ITA Data CY 2018.csv
+data/injury data/ITA Data CY 2017.csv
+data/injury data/ITA Data CY 2016.csv
+data/injury data/ITA Case Detail Data 2023 through 3-16-2024.csv
