@@ -69,14 +69,18 @@ if page == "Home":
     st.subheader("Data Dictionary")
     st.write("The following document provides a detailed explanation of the variables included in the dataset:")
     
-    # Display PDF
+    # Display PDF or provide download link
     pdf_file_path = 'data dictionaries/summary_data_dictionary.pdf'
-    with open(pdf_file_path, 'rb') as pdf_file:
-        pdf_data = pdf_file.read()
-    
-    pdf_bytes = base64.b64encode(pdf_data).decode('utf-8')
-    pdf_display = f'<iframe src="data:application/pdf;base64,{pdf_bytes}" width="100%" height="800" type="application/pdf"></iframe>'
-    st.markdown(pdf_display, unsafe_allow_html=True)
+    try:
+        with open(pdf_file_path, 'rb') as pdf_file:
+            pdf_data = pdf_file.read()
+
+        pdf_bytes = base64.b64encode(pdf_data).decode('utf-8')
+        pdf_display = f'<iframe src="data:application/pdf;base64,{pdf_bytes}" width="100%" height="800" type="application/pdf"></iframe>'
+        st.markdown(pdf_display, unsafe_allow_html=True)
+    except Exception as e:
+        st.write("Unable to display the PDF inline. Please use the link below to download the data dictionary.")
+        st.download_button(label="Download Data Dictionary", data=pdf_data, file_name="summary_data_dictionary.pdf", mime='application/pdf')
     
 # Correlation Analysis page
 elif page == "Correlation Analysis":
