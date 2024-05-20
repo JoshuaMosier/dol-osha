@@ -1,3 +1,4 @@
+import base64
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -38,10 +39,47 @@ def load_business_data():
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.selectbox("Choose a page", ["Correlation Analysis", "NAICS Treemap", "Business Injury Rates","State Injury Rate Trends","3D Scatterplots","DAFW by VA ZIP"])
+page = st.sidebar.selectbox("Choose a page", ["Home","Correlation Analysis", "NAICS Treemap", "Business Injury Rates","State Injury Rate Trends","3D Scatterplots","DAFW by VA ZIP"])
 
+if page == "Home":
+    st.title("OSHA Data Visualization Webapp")
+    st.write("""
+    This webapp provides various visualizations and analyses of OSHA data related to workplace injuries. Use the sidebar to navigate through the different pages, each offering unique insights into the data.
+    
+    - **Correlation Analysis**: Explore relationships between various injury-related metrics.
+    - **NAICS Treemap**: View businesses grouped by NAICS code, colored by injury rates.
+    - **Business Injury Rates**: Examine detailed injury data for specific businesses.
+    - **State Injury Rate Trends**: Analyze injury rate trends across different states over time.
+    - **3D Scatterplots**: Visualize multidimensional data with interactive scatter plots.
+    - **DAFW by VA ZIP**: See the distribution of days away from work grouped by ZIP codes in Virginia.
+
+    Select a page from the sidebar to begin exploring the data!
+    """)
+    
+    st.subheader("About the Data")
+    st.write("""
+    The data used in this webapp is sourced from the Occupational Safety and Health Administration (OSHA) Injury Tracking Application (ITA). 
+    The ITA collects data from establishments about work-related injuries and illnesses as required by OSHA's recordkeeping regulations. 
+    The data includes details such as the number of injuries, illnesses, and fatalities, as well as the total hours worked and the number of employees.
+    
+    The first year of data collection was for calendar year (CY) 2016, with subsequent years collected annually. 
+    Establishments with 250 or more employees and those with 20-249 employees in certain high-risk industries must submit their OSHA Form 300A data electronically each year.
+    """)
+    
+    st.subheader("Data Dictionary")
+    st.write("The following document provides a detailed explanation of the variables included in the dataset:")
+    
+    # Display PDF
+    pdf_file_path = 'data dictionaries/summary_data_dictionary.pdf'
+    with open(pdf_file_path, 'rb') as pdf_file:
+        pdf_data = pdf_file.read()
+    
+    pdf_bytes = base64.b64encode(pdf_data).decode('utf-8')
+    pdf_display = f'<iframe src="data:application/pdf;base64,{pdf_bytes}" width="100%" height="800" type="application/pdf"></iframe>'
+    st.markdown(pdf_display, unsafe_allow_html=True)
+    
 # Correlation Analysis page
-if page == "Correlation Analysis":
+elif page == "Correlation Analysis":
     
     # Set up the main page and navigation
     st.title("Injury Rate Analysis Dashboard")
