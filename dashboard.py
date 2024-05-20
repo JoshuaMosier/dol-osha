@@ -67,20 +67,11 @@ if page == "Home":
     """)
     
     st.subheader("Data Dictionary")
-    st.write("The following document provides a detailed explanation of the variables included in the dataset:")
-    
-    # Display PDF
-    pdf_file_path = 'data dictionaries/summary_data_dictionary.pdf'
-    with open(pdf_file_path, 'rb') as pdf_file:
-        pdf_data = pdf_file.read()
 
-    pdf_bytes = base64.b64encode(pdf_data).decode('utf-8')
-    pdf_display = f'<iframe src="data:application/pdf;base64,{pdf_bytes}" width="100%" height="800" type="application/pdf"></iframe>'
-    
-    st.markdown(pdf_display, unsafe_allow_html=True)
-    st.write("If the PDF does not display correctly, you can download it using the link below:")
-    st.download_button(label="Download Data Dictionary", data=pdf_data, file_name="summary_data_dictionary.pdf", mime='application/pdf')
-    
+    # Display PDF
+    dict_url = 'https://www.osha.gov/sites/default/files/summary_data_dictionary.pdf'
+    st.markdown("The following document provides a detailed explanation of the variables included in the dataset: [Data Dictionary](%s)" % dict_url)
+
 # Correlation Analysis page
 elif page == "Correlation Analysis":
     
