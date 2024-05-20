@@ -329,7 +329,7 @@ elif page == "Business Injury Rates":
         styled_df = business_df.style.apply(lambda row: style_row(row, skip_keys), axis=1)
 
         # Display the styled dataframe
-        st.dataframe(styled_df, use_container_width=True)
+        st.dataframe(styled_df, use_container_width=True,height=1000)
         
         # Prepare data for the calculated values
         fields_to_calculate = [
