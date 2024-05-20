@@ -1,5 +1,8 @@
 # OSHA Data Visualization Webapp
 
+### View the streamlit app below:
+**https://dol-osha-cbjjcwad3wwskvfgcvnw7u.streamlit.app/**
+
 This webapp provides various visualizations and analyses of OSHA data related to workplace injuries. Use the sidebar to navigate through the different pages, each offering unique insights into the data.
 
 - Correlation Analysis: Explore relationships between various injury-related metrics.
@@ -10,6 +13,7 @@ This webapp provides various visualizations and analyses of OSHA data related to
 - DAFW by VA ZIP: See the distribution of days away from work grouped by ZIP codes in Virginia.
 
 ## About the Data
+**https://www.osha.gov/Establishment-Specific-Injury-and-Illness-Data**
 
 The data used in this webapp is sourced from the Occupational Safety and Health Administration (OSHA) Injury Tracking Application (ITA). 
 The ITA collects data from establishments about work-related injuries and illnesses as required by OSHA's recordkeeping regulations. 
