@@ -2,3 +2,7 @@
 /shapefile
 /data dictionaries
 /data
+aggregated_injury_data.json
+filtered_aggregated_data.json
+reformatted_aggregate_by_estab_id.json
+sample_by_estab_id.json
