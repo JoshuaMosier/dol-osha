@@ -433,7 +433,7 @@ elif page == "3D Scatterplots":
 elif page == 'DAFW by VA ZIP':
     st.title("Days away from work grouped by VA Zip Code")
     
-    with open('html\ita-data-map-va.html','r') as f: 
+    with open('html/ita-data-map-va.html','r') as f: 
         html_data = f.read()
     
     st.components.v1.html(html_data, scrolling=True, height=600)
